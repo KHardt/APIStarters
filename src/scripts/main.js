@@ -1,6 +1,7 @@
 const FormManager = require("./JournalForm.js")
 const APIObject = require("./dataManager")
 const renderEntryList = require("./EntryList")
+//const deleteStuff = require("./Delete")
 //console.log(Entries)
 
 let setItem = document.getElementById("form")
@@ -34,3 +35,4 @@ setItem.innerHTML = FormManager.renderEntryForm();
 
 })
 renderEntryList()
+//deleteStuff()

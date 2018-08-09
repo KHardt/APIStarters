@@ -1,4 +1,6 @@
 const APIObject = {};
+//you have to target a specific id etc for PUT DELETE etc API Calls
+//NOT get
 
 APIObject.getEntries = () => {
     return fetch("http://localhost:8088/entries?_order=desc&_sort=id")
@@ -10,10 +12,10 @@ APIObject.getEntries = () => {
 
 }
 
-APIObject.deleteEntry = () => {
-    return fetch("http://localhost:8088/entries", {
+APIObject.deleteEntry = (id) => {
+    return fetch(`http://localhost:8088/entries/${id}jn`, {
         method: "DELETE"
-        .then(response => response.json()) //function returning parsed into json
+        //.then(response => response.json()) //function returning parsed into json. Don't need to put promise in it
     })
 
 }
@@ -28,6 +30,14 @@ APIObject.saveJournalEntry = (entry) => {
         body: JSON.stringify(entry)
     })
     .then(response => response.json())
+}
+
+APIObject.deleteEntry = () => {
+    return fetch("http://localhost:8088/entries", {
+        method: "PUT"
+        .then(response => response.json()) //function returning parsed into json
+    })
+
 }
 
 module.exports = APIObject

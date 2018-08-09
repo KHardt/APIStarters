@@ -1,13 +1,14 @@
 //new Entry representation to page
+const dataManager = require("./dataManager")
 
-function deleteStuff () {
-document.getElementById("deleteButton")
-    .addEventListener("click", () => {
+function deleteStuff (id) {
+// document.getElementById("deleteButton")
+//     .addEventListener("click", () => {
 
-        APIObject.deleteEntry(newEntry).then(() => {
-            renderEntryList()
+        dataManager.deleteEntry().then(() => {
+            renderEntryList(id)
         })
-    })
+    // })
 
 }
 
